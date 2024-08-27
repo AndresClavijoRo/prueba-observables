@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { HeroeServiceService } from '../../servicios/heroe-service.service';
 
 @Component({
   selector: 'app-heroe-page',
   templateUrl: './heroe-page.component.html',
   styleUrls: ['./heroe-page.component.scss']
 })
-export class HeroePageComponent {
+export class HeroePageComponent implements OnInit {
+  constructor(public heroeService: HeroeServiceService) { }
+
+
+  ngOnInit(): void {
+    const resultado = this.heroeService.sumarPoder('1', '2');
+    console.log(resultado);
+  }
+
+
   heroes = [
     {
       nombre: 'Superman',
@@ -28,6 +38,8 @@ export class HeroePageComponent {
   ]
 
   heroeCLicPadre(nombre: string) {
+    const resultado = this.heroeService.sumarPoder('1', '2');
+    console.log(resultado);
     console.log(`Heroe clickeado desde el padre ${nombre}`);
   }
 }
