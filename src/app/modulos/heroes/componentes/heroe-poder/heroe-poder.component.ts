@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-heroe-poder',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./heroe-poder.component.scss']
 })
 export class HeroePoderComponent {
-
+  @Input() poderHeroe: string = '';
 }

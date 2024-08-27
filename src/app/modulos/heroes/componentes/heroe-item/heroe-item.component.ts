@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-heroe-item',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./heroe-item.component.scss']
 })
 export class HeroeItemComponent {
+  @Input() heroe: any;
+  @Output() heroeOutput = new EventEmitter<any>();
 
+  clickHeroe() {
+    console.log(`Heroe clickeado desde el hijo ${this.heroe.nombre}`);
+    this.heroeOutput.emit(this.heroe.nombre);
+  }
 }

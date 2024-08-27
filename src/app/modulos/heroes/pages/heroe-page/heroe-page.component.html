@@ -1,1 +1,5 @@
-<p>heroe-page works!</p>
+<h1>Pagina de heroes</h1>
+
+<div *ngFor="let heroe of heroes">
+  <app-heroe-item [heroe]="heroe" (heroeOutput)="heroeCLicPadre($event)"></app-heroe-item>
+</div>

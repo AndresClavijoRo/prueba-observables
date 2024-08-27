@@ -1,1 +1,15 @@
-<p>heroe-item works!</p>
+<h1>heroe {{heroe.nombre}}</h1>
+<pre>
+    {{ heroe | json }}
+</pre>
+
+<button (click)="clickHeroe()">boton heroe</button>
+
+
+<h2>Poderes</h2>
+
+<ul>
+  <li *ngFor="let poder of heroe.poderes">
+    <app-heroe-poder [poderHeroe]="poder"></app-heroe-poder>
+  </li>
+</ul>
