@@ -8,11 +8,12 @@ import { HeroeServiceService } from '../../servicios/heroe-service.service';
 })
 export class HeroePageComponent implements OnInit {
   constructor(public heroeService: HeroeServiceService) { }
-
+  mostrarDetllesHeroe: boolean = true;
 
   ngOnInit(): void {
     const resultado = this.heroeService.sumarPoder('1', '2');
     console.log(resultado);
+    this.mensajeDesdeNieto();
   }
 
 
@@ -41,5 +42,22 @@ export class HeroePageComponent implements OnInit {
     const resultado = this.heroeService.sumarPoder('1', '2');
     console.log(resultado);
     console.log(`Heroe clickeado desde el padre ${nombre}`);
+  }
+
+  mensajeDesdeNieto() {
+    this.heroeService.mensajeAabuelo$.subscribe((mensaje) => {
+      console.log("mensaje desde el abuelo", mensaje);
+    });
+  }
+
+  enviarMensjaeNito(heroe: any) {
+    this.heroeService.asignarMensajeNieto(heroe);
+    this.mostrarDetllesHeroe = false;
+
+
+    setTimeout(() => {
+      this.mostrarDetllesHeroe = true;
+    }, 1000);
+
   }
 }

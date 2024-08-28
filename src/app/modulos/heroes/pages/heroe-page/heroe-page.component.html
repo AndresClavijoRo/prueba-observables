@@ -1,5 +1,11 @@
 <h1>Pagina de heroes</h1>
 
-<div *ngFor="let heroe of heroes">
-  <app-heroe-item [heroe]="heroe" (heroeOutput)="heroeCLicPadre($event)"></app-heroe-item>
+
+<button (click)="enviarMensjaeNito('hola nieto')">Mensaje a nieto</button>
+
+<div *ngIf="mostrarDetllesHeroe">
+  <div *ngFor="let heroe of heroes">
+    <app-heroe-item [heroe]="heroe" (heroeOutput)="heroeCLicPadre($event)"></app-heroe-item>
+  </div>
 </div>
+
